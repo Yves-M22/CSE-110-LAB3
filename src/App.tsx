@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { ToDoList } from "./toDoList";
+import { Route, Routes } from "react-router-dom";
+import { StickyNotes } from "./stickyNotes";
+import { Navbar } from "./navbar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+ return (
+   <div>
+     <Navbar />
+     <Routes>
+       <Route path="/" element={<StickyNotes />} />
+       <Route path="/todolist/:name" element={<ToDoList />} />
+     </Routes>
+   </div>
+ );
+};
 
 export default App;
